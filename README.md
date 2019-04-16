@@ -28,8 +28,9 @@ The system is tested on Nvidia GeForce GTX 1080 Ti and 1070 Max-Q. Please instal
 
 | **Dependencies**                  	| Image Environment  	|
 |-----------------------------------	|--------------------	|
-| Nvidia Driver (Tested on 418.56) 	| Ubuntu 16.04       	|
+| Nvidia Driver (Tested on 418.56) 	  | Ubuntu 16.04       	|
 | Nvidia Docker (Tested on 2)       	| Cuda 8.0 + Cudnn 7 	|
+| ROS       	                        | Indigo             	|
 
 ## Building and Running
 1. Clone Repository in Host
@@ -58,7 +59,19 @@ source devel/setup.bash
 ```rosbag play demo-2.0.bag --clock```
 The bag can be downloaded at [Apollo Data Open Platform](http://data.apollo.auto), Vehicle System Demo Data, with file name ```demo-sensor-data-apollo-2.0.tar.gz```.
 
-## Known issues
+## Sensor Configuration
+Developers can enable/disable sensors in the launch file: 
+```~/shared_dir/apollo_perception_ros/src/perception/apollo_perception_ros/launch/perception_yx_detect.launch```
+
+```xml
+<!-- parameters for sensor control -->
+<param name="use_lidar" type="bool" value="true" />
+<param name="use_cam_long" type="bool" value="false" />
+<param name="use_cam_short" type="bool" value="false" />
+<param name="use_radar" type="bool" value="false" />
+```
+
+## Known Issues
 1. During building process, an error such as follows might occur. Usually do ```catkin build``` again can skip the problem. I am still trying to figure out how to complete solve it. Let me know if you find out a solution.
 ```
 /usr/include/c++/4.8/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
