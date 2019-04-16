@@ -28,7 +28,7 @@ The system is tested on Nvidia GeForce GTX 1080 Ti and 1070 Max-Q. Please instal
 
 | **Dependencies**                  	| Image Environment  	|
 |-----------------------------------	|--------------------	|
-| Nvidia Driver (Tested on 384.130) 	| Ubuntu 14.04       	|
+| Nvidia Driver (Tested on 418.56) 	| Ubuntu 16.04       	|
 | Nvidia Docker (Tested on 2)       	| Cuda 8.0 + Cudnn 7 	|
 
 ## Building and Running
@@ -38,10 +38,10 @@ mkdir ~/shared_dir && cd ~/shared_dir
 git clone https://github.com/cedricxie/apollo_perception_ros
 ```
 
-2. Pull Dokcer Image  
+2. Pull Dokcer Image
 ```docker pull cedricxie/apollo-perception-ros```
 
-3. Enter Docker Container  
+3. Enter Docker Container
 ```cd ~/shared_dir/apollo_perception_ros && ./docker/run.sh```
 
 4. Make ROS Packages
@@ -51,11 +51,11 @@ catkin build
 source devel/setup.bash
 ```
 
-5. Launch Perception Node  
+5. Launch Perception Node
 ```roslaunch vehicle_base detect_sim.launch```
 
-6. Playback Demo-2.0.bag from Apollo  
-```rosbag play demo-2.0.bag --clock```  
+6. Playback Demo-2.0.bag from Apollo
+```rosbag play demo-2.0.bag --clock```
 The bag can be downloaded at [Apollo Data Open Platform](http://data.apollo.auto), Vehicle System Demo Data, with file name ```demo-sensor-data-apollo-2.0.tar.gz```.
 
 ## Known issues
